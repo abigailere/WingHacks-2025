@@ -1,0 +1,20 @@
+{"frames": {
+
+"B_witch_attack.png":
+{
+	"frame": {"x":1,"y":1,"w":104,"h":414},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":104,"h":414},
+	"sourceSize": {"w":104,"h":414}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.1",
+	"image": "witch_attack.png",
+	"format": "RGBA8888",
+	"size": {"w":106,"h":416},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:d78b0f0f22315156048760336a8a1a56:68bf1fc6a6fff293b43d3d14dac484c0:aa7a3776a709955134dacb06760da644$"
+}
+}

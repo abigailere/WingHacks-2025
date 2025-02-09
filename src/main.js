@@ -1,38 +1,34 @@
-// Step 1
-import {Application, Graphics, Text, TextStyle, Assets, Sprite} from 'pixi.js';
+import { Application, Graphics } from 'pixi.js';
+import { createWitchSprite } from './components/LoadPlayerSprites.js';
 
-(async() => {
-  
-  // Step 2
-  const app = new Application();
+(async () => {
+  try {
+    const app = new Application();
 
-  // Step 3
-  await app.init({
-    resizeTo: window,
-    backgroundAlpha: 0.5,
-    backgroundColor: 0xffea00
-});
-app.canvas.style.position = 'absolute';
+    await app.init({
+      resizeTo: window,
+      backgroundAlpha: 0.5,
+      backgroundColor: 0xffea00,
+    });
 
-//graphics - rectangle
-const rectangle = new Graphics()
-  .rect(200, 200, 100, 150)
-  .fill({
-    color: 0xffea00,
-    alpha: 0.8
-  })
-  .stroke({
-    width: 8,
-    color: 0x00ff00
-  });
-  app.stage.addChild(rectangle);
+    app.canvas.style.position = 'absolute';
 
-  //load image for sprite
-  const texture = await Assets.load('/images/B_witch_attack.png');
-  const sprite = Sprite.from(texture);
-  app.stage.addChild(sprite);
+    // Add a rectangle for context
+    const rectangle = new Graphics()
+      .rect(200, 200, 100, 150)
+      .fill({ color: 0xffea00, alpha: 0.8 })
+      .stroke({ width: 8, color: 0x00ff00 });
 
-  // Step 4
-  document.body.appendChild(app.canvas);
+    app.stage.addChild(rectangle);
 
+    // Load and add the animated sprite
+    const witch_attack = await createWitchSprite();
+    console.log("Witch attack sprite:", witch_attack);
+
+    app.stage.addChild(witch_attack);
+
+    document.body.appendChild(app.canvas);
+  } catch (error) {
+    console.error("An error occurred:", error);
+  }
 })();
